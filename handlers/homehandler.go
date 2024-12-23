@@ -1,9 +1,6 @@
 package handlers
 
 import (
-	"ecomerce/data"
-	"encoding/json"
-	"io"
 	"net/http"
 	"html/template"
 )
@@ -21,25 +18,25 @@ func init() {
 }
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	url := "https://fakestoreapi.com/products"
+	// url := "https://fakestoreapi.com/products"
 
-	res, err := http.Get(url)
+	// res, err := http.Get(url)
 
-	if err != nil {
-		w.Write([]byte("Error Fetching Products"))
-	}
+	// if err != nil {
+	// 	w.Write([]byte("Error Fetching Products"))
+	// }
 
-	defer res.Body.Close()
+	// defer res.Body.Close()
 
-	resBody, _ := io.ReadAll(res.Body)
+	// resBody, _ := io.ReadAll(res.Body)
 
-	products := []data.Product{}
+	// products := []data.Product{}
 
-	err = json.Unmarshal(resBody, &products)
+	// err = json.Unmarshal(resBody, &products)
 
-	if err != nil {
-		w.Write([]byte("Error Unmarshalling Products"))
-	}
+	// if err != nil {
+	// 	w.Write([]byte("Error Unmarshalling Products"))
+	// }
 
-	tpl.ExecuteTemplate(w, "index.html", products)
+	tpl.ExecuteTemplate(w, "index.html", nil)
 }
