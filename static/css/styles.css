@@ -6,26 +6,253 @@
 
 body {
     width: 100%;
-    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #4a9276;
+
 }
 
-.container {
+.container{
     width: 100%;
-    margin: 0;
+    margin:0 auto;
+
 }
+
+.promo{
+    width: 90%;
+    background-color: rgb(30, 173, 119);
+    margin: 0 auto; 
+    color: white;
+}
+
+.promo h3 {
+    font-size: 2.5rem;
+    padding: 0.1em;
+    margin-left: 0;
+    color: white;
+
+}
+
 
 header {
     width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #dcdad7;
+    padding: 0.8em 0em;
+    z-index: 1000;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
 }
 
-header .navbar {
-    width: 100%;
+header .logo {
+margin-left: auto;
 }
 
-.products {
+header .search {
+    flex: 0.80 0 9em;
+    margin: auto 2em;
+}
+header .search form {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    border-radius: 5px;
+    border: none;
+}
+
+.search form input {
+    width: 80%;
+    padding: 0.5em 1em;
+    border-radius: 7px;
+    outline: none;
+    border: none;
+}
+
+.search form button {
+    width: 12%;
+    font-size: 1em;
+    padding: 0.3em 0.1em;
+    border-radius: 8px;
+    background-color: #f68b1e;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+header .nav {
+    width: 25% ;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: auto;
+}
+
+header .nav .account, .help, .cart{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0.5em;
+    border-radius: 0.3em;
+    font-size: 1em;
+}
+
+.account {
+    background-color: #f68b1e;
+    border: none;
+    cursor: pointer;
+}
+
+.main_section{
+    width: 90%;
+    margin: 1em auto;
+}
+
+.main_section .top_div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.main_section .top_div .left_div {
+    flex: 0.3 0 0.5em;
+    background-color: #dcdad7;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_section .top_div .left_div ul {
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.main_section .top_div .left_div ul li {
+    width: 100%;
+    margin-left: 6px;
+}
+
+.main_section .top_div .left_div ul li a {
+    text-decoration: none;
+    font-size: 1em;
+    padding: 8px;
+    color: rgb(34, 33, 33);
+}
+
+.main_section .top_div .left_div ul li a .fas {
+    margin-right: 5px;
+}
+
+.main_section .top_div .center_div {
+    flex: 1 0 1em;
+    height: 25em;
+}
+
+.carousel .track {
+    display: flex;
+    overflow: hidden;
+}
+
+.main_section .top_div .center_div .carousel, .track, li {
+    width: 100%;
+    height: 100%;
+} 
+
+.caro_img {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+.active {
+    opacity: 1;
+    flex: 1 0 100%;
+}
+
+.main_section .top_div .center_div .carousel .track li img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.main_section .top_div .right_div {
+    flex: 0.3 0 0.5em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+}
+
+.main_section .top_div .right_div .top {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #dcdad7;
+    border-radius: 7px;
+}
+
+.main_section .top_div .right_div .top .top_item {
+    width: 100%;
+    margin-left: auto;
+    display: flex;
+    gap: 0.5em;
+
+    padding: 0.3em;
+}
+
+.main_section .top_div .right_div .top .top_item .icon {
+    font-size: 2em;
+    color: #435809;
+    margin-left: 0.4em;
+}
+
+.main_section .top_div .right_div .top .top_item .text h5 {
+    font-size: 0.8em;
+    margin-top: 0.3em;
+    font-weight: 900;
+}
+
+.main_section .top_div .right_div .top .top_item .text p {
+    font-size: 0.7em;
+}
+
+.main_section .top_div .right_div .bottom {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 8px;
+}
+
+.main_section .top_div .right_div .bottom img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.main_section .top_div  .top_div_item {
+    border-radius: 5px;
+}
+
+.main_section .top_div .center_div {
+    background-color: transparent;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
