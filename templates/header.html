@@ -1,0 +1,132 @@
+{{define "HEADER"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <script src="/static/js/script.js" defer></script>
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="stylesheet" href="/static/css/signin.css">
+  <link rel="stylesheet" href="/static/css/signup.css">
+  <link rel="stylesheet" href="/static/css/error.css">
+  <link rel="stylesheet" href="/static/css/cart.css">
+  <link rel="stylesheet" href="/static/css/product.css">
+  <link rel="stylesheet" href="/static/css/profile.css">
+  <title>{{.Title}}</title>
+</head>
+<body>
+   <div class="container">
+     <header>
+      <div class="logo">
+        <a href="/">
+            <h1>sKyMaLL</h1>
+        </a>
+      </div>
+      <div class="search">
+        <form action="" method="get">
+          <input type="text" name="search" id="search" placeholder="Search products, brands and categories">
+          <button type="submit">Search</button>
+        </form>
+      </div>
+      <div class="nav">
+        <div class="holder">
+          <div class="account nav_item">
+            <i class="fas fa-user"></i>
+            <div id="name">
+              {{if .User.FName}}
+                <h4>Hi, {{.User.FName}}</h4>
+              {{else}}
+                <h4>Account</h4>
+              {{end}}
+            </div>
+            <i class="fas fa-caret-down dropdown-arrow"></i>
+          </div>
+          {{if .User.FName}}
+              <div id="actions">
+                <ul>
+                  <li>
+                    <a href="/profile">
+                      <i class="fas fa-user"></i>
+                      My Account
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/orders">
+                      <i class="fas fa-box"></i>
+                      Orders
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/inbox">
+                      <i class="fas fa-inbox"></i> Inbox
+
+                      Inbox
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/wishlist">
+                      <i class="fas fa-heart"></i>
+                      Saved Items
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/vouchers">
+                      <i class="fas fa-receipt"></i>
+                      Vouchers
+                    </a>
+                  </li>
+                  <li>
+                    <div class="signin">
+                          <a href="/signout">
+                            <button id="logout">Log Out</button>
+                          </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+        {{else}}
+              <div id="actions">
+                <ul>
+                  <li>
+                    <div class="signin">
+                        <a href="/signin">
+                          <button>Log In</button>
+                        </a>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="/profile">
+                      My Account
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/orders">
+                      Orders
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/wishlist">
+                      Saved Items
+                    </a>
+                  </li>
+                </ul>
+              </div>
+        {{end}}
+        </div>
+        <div class="help nav_item">
+          <i class="fas fa-question-circle"></i>
+          <h4>Help</h4>
+          <i class="fas fa-caret-down dropdown-arrow"></i>
+        </div>
+        <a href="/cart">
+          <div class="cart nav_item">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <h4>Cart</h4>
+            <p class="items_count">{{.User.Cart}}</p>
+          </div>
+        </a>
+      </div>
+  </header>
+ <div class="main_section">
+{{end}}

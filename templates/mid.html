@@ -1,0 +1,113 @@
+{{define "MID"}}
+<div class="mid_div">
+    <div class="latest_products">
+      <div class="title">Latest In The Market</div>
+      <div class="top_section">
+        {{if .}}
+          {{ range .}}
+        <div class="product_frame">
+          <div class="product_image">
+            <a href="/product?id={{.Id}}">
+            <img src="{{.Image}}" alt="image" loading="lazy">
+            </a>
+          </div>
+          <div class="product_info">
+            <div class="product_name">{{.Title}}</div>
+            <div class="product_price">KSh <span>{{.Price}}</span></div>
+            <div class="product_discount">
+              <div class="discount">10% OFF</div>
+              <button type="submit" id="add_to_cart">Add To Cart</button>
+              <input type="hidden" id="product_id" value="{{.Id}}">
+            </div>
+          </div>
+        </div>
+          {{end}}
+        {{else}}
+          <p>>>>>Error Loading Data>>>></p>
+        {{end}}
+      </div>
+      <div class="bottom_section">
+        <div class="item">
+          <div class="image">
+            <img src="https://ke.jumia.is/cms/2024/W49/Freelinks/FlashSales.png" alt="image" loading="lazy">
+          </div>
+          <div class="name">
+            Flash Sales
+          </div>
+        </div>
+        <div class="item">
+          <div class="image">
+            <img src="https://ke.jumia.is/cms/2024/W49/Freelinks/Clearance.png" alt="image" loading="lazy">
+          </div>
+          <div class="name">
+            Clearance Sale
+          </div>
+        </div>
+        <div class="item">
+          <div class="image">
+            <img src="https://ke.jumia.is/cms/2024/W49/Freelinks/Phones.png" alt="image" loading="lazy">
+          </div>
+          <div class="name">
+            Phone Deals
+          </div>
+        </div>
+        <div class="item">
+          <div class="image">
+            <img src="https://ke.jumia.is/cms/2024/W49/Freelinks/HalfPrice.png" alt="image" loading="lazy">
+          </div>
+          <div class="name">
+            Half Price Shop
+          </div>
+        </div>
+        <div class="item">
+          <div class="image">
+            <img src="https://ke.jumia.is/cms/2024/W49/Freelinks/Beauty.png" alt="image" loading="lazy">
+          </div>
+          <div class="name">
+            Beauty Essentials
+          </div>
+        </div>
+        <div class="item">
+          <div class="image">
+            <img src="https://ke.jumia.is/cms/2024/W49/Freelinks/Laptop.png" alt="image" loading="lazy">
+          </div>
+          <div class="name">
+            Laptop Deals
+          </div>
+        </div>
+        <div class="item">
+          <div class="image">
+            <img src="https://ke.jumia.is/cms/2024/W49/Freelinks/SmallAppliances.png" alt="image" loading="lazy">
+          </div>
+          <div class="name">
+            Small Appliances
+          </div>
+        </div>
+        <div class="item">
+          <div class="image">
+            <img src="https://ke.jumia.is/cms/2024/W49/Freelinks/HomeDecor.png" alt="image" loading="lazy">
+          </div>
+          <div class="name">
+            Home Deals
+          </div>
+        </div>
+        <div class="item">
+          <div class="image">
+            <img src="https://ke.jumia.is/cms/2024/W49/Freelinks/MusicSystems.png" alt="image" loading="lazy">
+          </div>
+          <div class="name">
+            Deals On Soundbars
+          </div>
+        </div>
+        <div class="item">
+          <div class="image">
+            <img src="https://ke.jumia.is/cms/2024/W49/Freelinks/NewArrivals.png" alt="image" loading="lazy">
+          </div>
+          <div class="name">
+            New Arrivals
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+{{end}}

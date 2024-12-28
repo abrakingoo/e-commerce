@@ -1,0 +1,60 @@
+{{define "PRODUCT"}}
+    <div id="product_div">
+        {{if .}}
+        <div id="frame">
+            <div id="image">
+                <img src="{{.Image}}" alt="image">
+            </div>
+        <div id="info">
+            <div id="title">
+                <h4>
+                    {{.Title}}
+                </h4>
+                    
+            </div>
+            <div id="description">
+                {{.Description}}
+            </div>
+            <div id="bottom">
+                <div id="left">
+                    <div id="category">
+                        <h5>
+                            {{.Category}}
+                        </h5>
+                    </div>
+                    <div id="price">
+                        KSh {{.Price}}
+                    </div>
+                    <div id="rating">
+                        {{.Rating}}
+                    </div>
+                </div>
+                <div id="right_product">
+                    <div id="add">
+                            <button id="add_to_cart">Add To Cart</button>
+                            <input type="hidden" value="{{.Id}}">
+                    </div>
+                    <div id="wish" title="Add To Wish List">
+                        <i class="far fa-heart" ></i>
+                    </div>
+                    <div id="home">
+                        <a href="/">
+                            <button>Continue Shopping</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="go_to_cart">
+                <a href="/cart">
+                    <div id="cart">
+                        <h4>Go To Cart</h4>
+                      <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                  </a>   
+            </div>
+        </div>
+        {{end}}
+    </div>
+    </div>
+{{template "TOP DEALS"}}
+{{end}}

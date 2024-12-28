@@ -1,0 +1,16 @@
+{{define "ERROR"}}
+<div class="errordiv">
+    <div class="error">
+        <h1>
+            {{.Code}}
+        </h1>
+        <h5>
+            {{.Error}}
+        </h5>
+        <h4>
+            {{.Msg}}
+            <a href="{{.Redirect}}">{{.Directive}}</a>
+        </h4>
+    </div>
+</div>
+{{end}}

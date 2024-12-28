@@ -1,0 +1,17 @@
+{{define "SIGNIN"}}
+<div class="signindiv">
+    <div class="heading">
+        <h1>Log In</h1>
+    </div>
+    <div class="signinform">
+        <form action="/signin" method="post">
+            <input type="email" name="email" id="" required placeholder="email" autofocus >
+            <input type="password" name="password" id="" required placeholder="password">
+            <button type="submit">Log In</button>
+        </form>
+        <div class="signup">
+            Don't Have An Account? Sign up <a href="/signup">HERE</a>
+        </div>
+    </div>
+</div>
+{{end}}

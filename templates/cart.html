@@ -1,0 +1,73 @@
+{{define "CART"}}
+<div class="cart_div">
+    {{if .Data}}
+        {{range .Data}}
+        <div id="cart_items">
+            <div id="frame">
+                <div id="image">
+                    <img src="{{.Image}}" alt="image">
+                </div>
+                <div id="info">
+                    <div id="title">
+                        <h4>
+                            {{.Title}}
+                        </h4>
+                            
+                    </div>
+                    <div id="description">
+                        {{.Description}}
+                    </div>
+                    <div id="bottom">
+                        <div id="left">
+                            <div id="category">
+                                <h5>
+                                    {{.Category}}
+                                </h5>
+                            </div>
+                            <div id="price">
+                                KSh {{.Price}}
+                            </div>
+                            <div id="rating">
+                                {{.Rating}}
+                            </div>
+                        </div>
+                        <div id="right">
+                            <div id="remove">
+                                    <button id="remove_from_cart">Remove</button>
+                                    <input type="hidden" value="{{.Id}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{end}}
+        <div id="check_out">
+            <div id="buy">
+                <a href="">
+                    <button>Proceed To Check Out</button>
+                </a>
+            </div>
+            <div id="return_home">
+                <a href="/">
+                    <button>Continue Shopping</button>
+                </a>
+            </div>
+        </div>
+    {{else}}
+    <div class="empty_cart">
+        <div class="cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+        <h4>Your cart is empty!</h4>
+        <p>Browse our categories and discover our best deals!</p>
+        <div class="btn">
+            <a href="/">
+                <button>Start Shopping</button>
+            </a>
+        </div>
+    </div>
+    {{end}}
+</div>
+{{template "TOP DEALS"}}
+{{end}}
