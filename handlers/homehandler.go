@@ -1,42 +1,40 @@
 package handlers
 
 import (
+	"ecomerce/data"
+	"ecomerce/utils"
+	"encoding/json"
+	"log"
 	"net/http"
-	"html/template"
+	"os"
 )
 
-var (
-	tpl *template.Template
-	err error
-)
-
-func init() {
-	tpl, err = template.ParseGlob("templates/*.html")
-	if err != nil {
-		return
-	}
-}
+var Products = []data.Product{}
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	// url := "https://fakestoreapi.com/products"
 
-	// res, err := http.Get(url)
+	user, loggedIn := utils.GetUserFromSession(r)
+	if !loggedIn {
+		user = data.User{}
+	}
 
-	// if err != nil {
-	// 	w.Write([]byte("Error Fetching Products"))
-	// }
+	file, err := os.ReadFile("db/products.json")
 
-	// defer res.Body.Close()
+	if err != nil {
+		log.Println(err.Error())
+	}
 
-	// resBody, _ := io.ReadAll(res.Body)
+	if err = json.Unmarshal(file, &Products); err != nil {
+		log.Println(err.Error())
+	}
 
-	// products := []data.Product{}
+	// If products are empty, handle that case by rendering a message
+	if len(Products) == 0 {
+		log.Println("No products found")
+		RenderPage(w, data.PageData{Title: "Home", Data: "No products available at the moment", User: user})
+		return
+	}
 
-	// err = json.Unmarshal(resBody, &products)
-
-	// if err != nil {
-	// 	w.Write([]byte("Error Unmarshalling Products"))
-	// }
-
-	tpl.ExecuteTemplate(w, "index.html", nil)
+	// Render the page with the fetched products and user data
+	RenderPage(w, data.PageData{Title: "Home", Data: Products, User: user})
 }
