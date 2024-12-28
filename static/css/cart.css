@@ -1,0 +1,239 @@
+.cart_div{
+    width: 90%;
+    background-color: #dcdad7;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin: 5em auto 1em auto;
+}
+
+.empty_cart {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty_cart .cart {
+    background-color: #ff0000;
+    margin: 2em auto 0.3em auto;
+    border-radius: 50%;
+}
+
+.empty_cart .fa-cart-shopping {
+    font-size: 4em;
+    padding: 0.3em;
+    color:  #ffffff;;
+
+}
+
+.empty_cart h4 {
+    width: 100%;
+    text-align: center;
+    margin: 0.5em auto ;
+    font-size: 1.2em ;
+}
+
+.empty_cart p {
+    margin: 1em auto;
+}
+
+.empty_cart .btn {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 1em auto 3em auto;
+}
+
+.empty_cart .btn a button {
+    width: 10em;
+    font-size: 1em;
+    padding: 1em 0.1em;
+    border-radius: 8px;
+    background-color: #f68b1e;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.cart_div #cart_items {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 1em 1em 0 1em ;
+}
+
+#cart_items:last-child {
+    margin-bottom: 1em;
+}
+
+#frame {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: 8px;
+    padding: 2em;
+    background-color: aliceblue;
+
+}
+
+#frame #image {
+    width: 25%;
+    height: 18em;
+    margin-right: 2em;
+    border-radius: 6px;
+    align-self: flex-start;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4em;
+}
+
+#frame #image img {
+    width: 90%;
+    height: 90%;
+    border-radius: 8px;
+}
+
+#frame #info {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin: 0 auto auto 0;
+    padding: 1em;
+    background-color: white;
+}
+
+#frame #info #title, #description, #price, #rating, #category {
+    width: 100%;
+    text-align: left;
+    padding: 0.5em;
+}
+
+#frame #info #title {
+    font-size: 1.3em;
+}
+
+#description, #price, #rating, #category {
+    margin-left: 1em;
+}
+#bottom {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#left{
+    width: 40%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#right{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+ #category h5 {
+    width: 60%;
+    background-color: #dcdad7;
+    padding: 0.2em 0.3em;
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: center;
+}
+
+#remove {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 1em;
+}
+
+#remove  button {
+    width: 10em;
+    font-size: 1em;
+    padding: 1em 0.1em;
+    border-radius: 8px;
+    background-color: rgb(211, 100, 81);
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+#check_out, #check_out a  {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0.5em auto;
+}
+
+#check_out {
+    gap: 2em;
+}
+
+#check_out a {
+    text-decoration: none;
+}
+#check_out a button {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 0.8em;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+}
+#description {
+    line-height: 1.7em;
+    font-size: 1em;
+    padding: 0.8em;
+    border-radius: 1em;
+    background-color: #f8f7f7;
+}
+
+#return_home {
+    background-color:  #c7701a;
+    color: white;
+    border-radius: 8px;
+    width: 40%;
+}
+
+#buy {
+    background-color:  #c7701a;
+    color: white;
+    border-radius: 8px;
+    width: 40%;
+}
+
+#return_home a, #buy a {
+    width: 100%;
+    
+}
