@@ -137,7 +137,7 @@
     justify-content: space-between;
 }
 
-#left{
+#bottom #left{
     width: 40%;
     display: flex;
     flex-wrap: wrap;
@@ -145,7 +145,7 @@
     justify-content: center;
 }
 
-#right{
+#bottom #right{
     width: 50%;
     display: flex;
     flex-wrap: wrap;

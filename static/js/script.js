@@ -62,6 +62,7 @@ btns.forEach((btn) => {
             .then(res => {
                 if (res.status === 401) {
                     count.innerHTML = 0;
+                    alert("Please login to continue")
                 } else if (res.ok) {
                     res.json().then(data => {
                         count.innerHTML = data.Count;
