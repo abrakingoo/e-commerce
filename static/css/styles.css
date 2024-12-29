@@ -292,7 +292,7 @@ header .nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 2em;
+    gap: 1em;
     align-self: flex-start;
 }
 
@@ -308,33 +308,42 @@ header .nav {
 
 .main_section .top_div .right_div .top .top_item {
     width: 100%;
-    margin:0.5em ;
-    margin-left: auto;
+    display: flex;
+    gap: 0.5em;
+    cursor: pointer;
+    padding: 0.1em;
+}
+
+.main_section .top_div .right_div .top .top_item  a {
+    width: 100%;
+    margin:0.5em auto ;
     display: flex;
     gap: 0.5em;
     cursor: pointer;
     padding: 0.3em;
+    text-decoration: none;
+    color: black;
 }
 
-.main_section .top_div .right_div .top .top_item:hover {
+.main_section .top_div .right_div .top .top_item a:hover {
     background-color: #f68b1e;
     border-radius: 8px;
     color: white;
 }
 
-.main_section .top_div .right_div .top .top_item .icon {
+.main_section .top_div .right_div .top .top_item a .icon {
     font-size: 2em;
     color: #435809;
     margin-left: 0.4em;
 }
 
-.main_section .top_div .right_div .top .top_item .text h5 {
+.main_section .top_div .right_div .top .top_item a .text h5 {
     font-size: 0.8em;
     margin-top: 0.3em;
     font-weight: 900;
 }
 
-.main_section .top_div .right_div .top .top_item .text p {
+.main_section .top_div .right_div .top .top_item a .text p {
     font-size: 0.7em;
 }
 
@@ -491,15 +500,27 @@ header .nav {
     color: white;
  }
 
- .container .mid_div .bottom_section {
-    width: 100%;
+ .container .mid_div {
+    width: 90%;
     background-color: #dcdad7;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
     border-radius: 5px;
-    margin: 0.5em 0 0.5em 0;
+    margin: 0.5em  auto
+
+}
+
+.bottom_section {
+    width: 90%;
+    background-color: #dcdad7;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 5px;
+    margin: 0.5em  auto;
 
 }
 
@@ -565,6 +586,7 @@ header .nav {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    margin-top: 4.5em;
 
 }
 .top_deals .title {

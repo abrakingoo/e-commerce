@@ -29,6 +29,7 @@ func main() {
 	http.HandleFunc("/profile", handlers.ProfileHandler)
 	http.HandleFunc("/remove", handlers.RemoveHandler)
 	http.HandleFunc("/product", handlers.ProductsHandler)
+	http.HandleFunc("/hotdeals", handlers.HotDealsHandler)
 	log.Println("Server running on https://localhost:8080")
 	http.ListenAndServe(":8080", nil)
 }

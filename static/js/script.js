@@ -139,3 +139,4 @@ logOutBtn.addEventListener('click', (e) => {
     e.stopPropagation(); // Prevents the event from bubbling up
     localStorage.removeItem("cartItems"); // Removes only the 'cartItems' entry from localStorage
 });
+
