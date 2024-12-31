@@ -46,6 +46,6 @@ func main() {
 	http.HandleFunc("/upload", handlers.UploadHandler)
 	http.HandleFunc("/stock", handlers.StockHandler)
 
-	log.Println("Server running on https://localhost:8080")
-	http.ListenAndServe(":8080", nil)
+	log.Println("Server running on port 10000")
+	http.ListenAndServe(":10000", nil)
 }
