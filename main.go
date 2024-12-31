@@ -27,7 +27,7 @@ func main() {
 			return
 		}
 		// Serve the requested file from the static directory
-		http.ServeFile(w, r, "static"+r.URL.Path)
+		http.ServeFile(w, r, "."+r.URL.Path)
 	})
 
 	// Other routes
