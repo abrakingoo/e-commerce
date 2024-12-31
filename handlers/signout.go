@@ -16,6 +16,7 @@ func SignOutHandler(w http.ResponseWriter, r *http.Request) {
 	session.Values["email"] = nil
 	session.Values["id"] = nil
 	session.Values["phonenumber"] = nil
+	session.Values["role"] = nil
 	session.Values["cart"] = nil
 
 	// Expire the session cookie by setting MaxAge to -1
