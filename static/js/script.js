@@ -137,7 +137,7 @@ let logOutBtn = document.getElementById("logout");
 
 logOutBtn.addEventListener('click', (e) => {
     e.stopPropagation(); // Prevents the event from bubbling up
-    localStorage.removeItem("cartItems"); // Removes only the 'cartItems' entry from localStorage
+    localStorage.clear(); // Removes only the 'cartItems' entry from localStorage
 });
 
 let chekoutBtn = document.getElementById("buy_btn") 
