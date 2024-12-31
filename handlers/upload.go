@@ -57,7 +57,7 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 
 		// w.Write([]byte(name + ", " + description + ", " + category + ", " + price + ", " + image))
 		LoadProductsCache()
-		http.Redirect(w, r, "/", http.StatusSeeOther)
+		http.Redirect(w, r, "/upload", http.StatusSeeOther)
 
 	}
 
