@@ -4,7 +4,6 @@ import (
 	"ecomerce/data"
 	"ecomerce/db"
 	"ecomerce/utils"
-	"fmt"
 	"log"
 	"net/http"
 
@@ -78,7 +77,7 @@ func singInUser(w http.ResponseWriter, r *http.Request) {
 	}
 
 	utils.CreateUserSession(w, r, user)
-	fmt.Println(user.Role)
+	// fmt.Println(user.Role)
 
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 }

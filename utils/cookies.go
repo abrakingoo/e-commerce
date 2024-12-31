@@ -2,7 +2,7 @@ package utils
 
 import (
 	"ecomerce/data"
-	"log"
+	// "log"
 	"net/http"
 
 	"github.com/gorilla/sessions"
@@ -55,7 +55,7 @@ func GetUserFromSession(r *http.Request) (data.User, bool) {
 	// Retrieve the session
 	session, err := Store.Get(r, "session")
 	if err != nil {
-		log.Println("Error retrieving session:", err)
+		// log.Println("Error retrieving session:", err)
 		return user, false
 	}
 
@@ -63,49 +63,49 @@ func GetUserFromSession(r *http.Request) (data.User, bool) {
 	if firstname, ok := session.Values["firstname"].(string); ok {
 		user.FName = firstname
 	} else {
-		log.Println("Missing or invalid 'firstname' in session")
+		// log.Println("Missing or invalid 'firstname' in session")
 		return user, false
 	}
 
 	if lastname, ok := session.Values["lastname"].(string); ok {
 		user.LName = lastname
 	} else {
-		log.Println("Missing or invalid 'lastname' in session")
+		// log.Println("Missing or invalid 'lastname' in session")
 		return user, false
 	}
 
 	if email, ok := session.Values["email"].(string); ok {
 		user.Email = email
 	} else {
-		log.Println("Missing or invalid 'email' in session")
+		// log.Println("Missing or invalid 'email' in session")
 		return user, false
 	}
 
 	if id, ok := session.Values["id"].(string); ok {
 		user.Id = id
 	} else {
-		log.Println("Missing or invalid 'id' in session")
+		// log.Println("Missing or invalid 'id' in session")
 		return user, false
 	}
 
 	if phone, ok := session.Values["phonenumber"].(string); ok {
 		user.Phone = phone
 	} else {
-		log.Println("Missing or invalid 'phonenumber' in session")
+		// log.Println("Missing or invalid 'phonenumber' in session")
 		return user, false
 	}
 
 	if role, ok := session.Values["role"].(string); ok {
 		user.Role = role
 	} else {
-		log.Println("Missing or invalid 'role' in session")
+		// log.Println("Missing or invalid 'role' in session")
 		return user, false
 	}
 
 	if cart, ok := session.Values["cart"].([]string); ok {
 		user.Cart = len(cart)
 	} else {
-		log.Println("Missing or invalid 'cart' in session")
+		// log.Println("Missing or invalid 'cart' in session")
 		return user, false
 	}
 
