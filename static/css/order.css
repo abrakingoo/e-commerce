@@ -1,0 +1,110 @@
+#orders_page {
+    margin: 2em; 
+    width: 100%; 
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+    padding: 1em;
+    overflow-y: scroll;
+}
+
+#orders_page::-webkit-scrollbar {
+    width: 5px;
+}
+
+#orders_page::-webkit-scrollbar-track {
+    background: #e0e0e0;
+}
+
+#orders_page::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 5px;
+}
+
+#orders_page::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+
+.order_container {
+    width: 100%;
+    background-color: rgb(241, 241, 241);
+    border-radius: 6px;
+}
+#orders_page .order_top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    padding: 1em;
+
+}
+
+#orders_page .orders {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content:center;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+#orders_page .orders .order {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-wrap: wrap;
+    gap: 1em;
+    align-self: flex-start;
+}
+
+#orders_page .order .order_left {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 3px;
+}
+
+#orders_page .order .order_left  img {
+    width: 50%;
+
+}
+
+#orders_page .order .order_right {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    flex-wrap: wrap;
+    border-radius: 6px;
+
+}
+
+
+#orders_page .order .order_right h5 {
+    width: 100%;
+    margin: 0.5em 0.5em 0.5em 0;
+}
+
+.total {
+    width: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-wrap: wrap;
+    margin: 0.5em;
+}
+
+.total p {
+    padding: 1em;
+    border-radius: 6px;
+    background-color: rgb(203, 207, 203);
+}

@@ -25,6 +25,7 @@ func CreateUserSession(w http.ResponseWriter, r *http.Request, user data.User) e
 	session.Values["email"] = user.Email
 	session.Values["id"] = user.Id
 	session.Values["phonenumber"] = user.Phone
+	session.Values["role"] = user.Role
 	session.Values["cart"] = []string{}
 
 	// Optionally, set the session expiration time
@@ -58,20 +59,55 @@ func GetUserFromSession(r *http.Request) (data.User, bool) {
 		return user, false
 	}
 
-	// Check if user data exists in the session
-	firstname, ok := session.Values["firstname"].(string)
-	if !ok {
-		log.Println("No user found in session")
+	// Safely retrieve and type-assert each session value
+	if firstname, ok := session.Values["firstname"].(string); ok {
+		user.FName = firstname
+	} else {
+		log.Println("Missing or invalid 'firstname' in session")
 		return user, false
 	}
 
-	// Populate the user struct with session values
-	user.FName = firstname
-	user.LName = session.Values["lastname"].(string)
-	user.Email = session.Values["email"].(string)
-	user.Id = session.Values["id"].(string)
-	user.Phone = session.Values["phonenumber"].(string)
-	user.Cart = len(session.Values["cart"].([]string))
+	if lastname, ok := session.Values["lastname"].(string); ok {
+		user.LName = lastname
+	} else {
+		log.Println("Missing or invalid 'lastname' in session")
+		return user, false
+	}
+
+	if email, ok := session.Values["email"].(string); ok {
+		user.Email = email
+	} else {
+		log.Println("Missing or invalid 'email' in session")
+		return user, false
+	}
+
+	if id, ok := session.Values["id"].(string); ok {
+		user.Id = id
+	} else {
+		log.Println("Missing or invalid 'id' in session")
+		return user, false
+	}
+
+	if phone, ok := session.Values["phonenumber"].(string); ok {
+		user.Phone = phone
+	} else {
+		log.Println("Missing or invalid 'phonenumber' in session")
+		return user, false
+	}
+
+	if role, ok := session.Values["role"].(string); ok {
+		user.Role = role
+	} else {
+		log.Println("Missing or invalid 'role' in session")
+		return user, false
+	}
+
+	if cart, ok := session.Values["cart"].([]string); ok {
+		user.Cart = len(cart)
+	} else {
+		log.Println("Missing or invalid 'cart' in session")
+		return user, false
+	}
 
 	return user, true
 }

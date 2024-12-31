@@ -1,0 +1,37 @@
+{{define "STOCK"}}
+<div class="stock_div">
+    <h1>ALL ITEM LIST</h1>
+    {{if .Data}}
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>In Stock</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+            {{range .Data}}
+            <tr>
+                <form action="/update-item" method="post">
+                    <td><textarea name="id" readonly cols="10" rows="2">{{.Id}}</textarea></td>
+                    <td><img src="{{.Image}}" alt="image" srcset=""></td>
+                    <td><textarea name="title" cols="30" rows="5">{{.Title}}</textarea></td>
+                    <td><textarea name="price" cols="10" rows="4">{{.Price}}</textarea></td>
+                    <td><textarea name="category" cols="10" rows="4">{{.Category}}</textarea></td>
+                    <td><textarea name="total" cols="10" rows="4">{{.Total}}</textarea></td>
+                    <td><textarea name="description" cols="60" rows="10">{{.Description}}</textarea></td>
+                    <td><button type="submit">Update</button></td>
+                    <td><button type="submit" style="background-color: tomato;">Delete</button></td>
+                </form>
+            </tr>
+            {{end}}
+        </table>
+    {{else}}
+        <p>No items found.</p>
+    {{end}}
+</div>
+{{end}}
+

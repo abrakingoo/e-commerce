@@ -1,0 +1,38 @@
+{{define "ORDERS"}}
+    <div id="orders_page">
+    {{if .}}
+        {{range  .}}
+        <div class="order_container">
+            <div class="order_top">
+                <h4>Order: {{.Id}}</h4>
+                {{if eq .Status true }}
+                    <p style="background-color: rgb(55, 145, 55); ">Status: Completed </p>
+                {{else}}
+                    <p style="background-color: rgb(231, 231, 172); padding: 0.2em 0.4em;">Status: Pending</p>
+                {{end}}
+            </div>
+            <div class="orders">
+                {{range .Products}}
+                    <div class="order">
+                        <div class="order_left">
+                            <img src="{{.Image}}" alt="image" srcset="">
+                        </div>
+                        <div class="order_right">
+                            <h5>
+                                {{.Title}}
+                            </h5>
+                            <p>
+                                KSh {{.Price}}
+                            </p>
+                        </div>
+                    </div>
+                {{end}}
+            </div>
+            <div class="total">
+                <p>Total: KSh {{.Total}}</p>
+            </div>
+        </div>
+        {{end}}
+    {{end}}
+    </div>
+{{end}}

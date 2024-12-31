@@ -3,36 +3,34 @@
     <div id="left">
         <div id="links">
             <ul>
-              <li>
-                <a href="/profile">
+              <li id="link">
+                <a href="/profile?name=account">
                   <i class="fas fa-user"></i>
                   My Account
+                  <input type="hidden" value="account">
                 </a>
               </li>
-              <li>
-                <a href="/orders">
+              <li id="link">
+                <a href="/profile?name=orders">
                   <i class="fas fa-box"></i>
                   Orders
+                  <input type="hidden" value="orders">
                 </a>
               </li>
-              <li>
-                <a href="/inbox">
-                  <i class="fas fa-inbox"></i> Inbox
-
+              <li id="link">
+                  <i class="fas fa-inbox"></i>
                   Inbox
-                </a>
+                  <input type="hidden" value="inbox">
               </li>
-              <li>
-                <a href="/wishlist">
+              <li id="link">
                   <i class="fas fa-heart"></i>
                   Saved Items
-                </a>
+                  <input type="hidden" value="savedItems">
               </li>
-              <li>
-                <a href="/vouchers">
+              <li id="link">
                   <i class="fas fa-receipt"></i>
                   Vouchers
-                </a>
+                  <input type="hidden" value="vouchers">
               </li>
               <li>
                 <div class="signin">
@@ -45,45 +43,7 @@
           </div>
     </div>
     <div id="right">
-        <div id="title">
-            <h4>Account Overview</h4>
-        </div>
-        <div id="right_bottom">
-            <div id="right_left">
-                <div id="details">
-                    <div id="account_title">
-                        <h4>Account details</h4>
-                    </div>
-                    <div id="account_details">
-                        <h4>
-                            {{.FName}} {{.LName}}
-                        </h4>
-                        <p>{{.Phone}}</p>
-                        <p>{{.Email}}</p>
-                    </div>
-                </div>
-            </div>
-            <div id="right_right">
-                <div id="address_title">
-                    <h4>Address Book</h4>
-                </div>
-                <div id="address_info">
-                    <h4>Your default shipping address:</h4>
-                    <p>
-                        {{.FName}} {{.LName}}
-                    </p>
-                    <p>
-                        Kisumu
-                    </p>
-                    <p>
-                        Kondele/Migosi/ Lolwe/Carwash/Kibos, Kisumu
-                    </p>
-                    <p>
-                        {{.Phone}}
-                    </p>
-                </div>
-            </div>
-        </div>
+        {{template "RIGHT_SECTION" .}}
     </div>
 </div>
 {{template "TOP DEALS"}}

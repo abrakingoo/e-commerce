@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="/static/css/cart.css">
   <link rel="stylesheet" href="/static/css/product.css">
   <link rel="stylesheet" href="/static/css/profile.css">
+  <link rel="stylesheet" href="/static/css/order.css">
   <title>{{.Title}}</title>
 </head>
 <body>
@@ -46,13 +47,13 @@
               <div id="actions">
                 <ul>
                   <li>
-                    <a href="/profile">
+                    <a href="/profile?name=account">
                       <i class="fas fa-user"></i>
                       My Account
                     </a>
                   </li>
                   <li>
-                    <a href="/orders">
+                    <a href="/profile?name=orders">
                       <i class="fas fa-box"></i>
                       Orders
                     </a>

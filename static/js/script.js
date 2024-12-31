@@ -140,3 +140,18 @@ logOutBtn.addEventListener('click', (e) => {
     localStorage.removeItem("cartItems"); // Removes only the 'cartItems' entry from localStorage
 });
 
+let chekoutBtn = document.getElementById("buy_btn") 
+if (chekoutBtn != null) {
+    chekoutBtn.addEventListener('click', ()=> {
+        localStorage.removeItem("cartItems");
+    })
+} 
+
+let hide = document.querySelector(".hide");  // Targeting button inside .hide
+let el = document.querySelector("#profile_div #left"); 
+let right = document.querySelector("#profile_div #right");  // Select #left inside #profile_div
+
+hide.addEventListener('click', () => {
+    el.style.display = "none";  // Hide the left section
+    right.style.width = "100%"
+});

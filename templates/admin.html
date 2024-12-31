@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <script src="/static/js/script.js" defer></script>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/signin.css">
+    <link rel="stylesheet" href="/static/css/signup.css">
+    <link rel="stylesheet" href="/static/css/error.css">
+    <link rel="stylesheet" href="/static/css/cart.css">
+    <link rel="stylesheet" href="/static/css/product.css">
+    <link rel="stylesheet" href="/static/css/profile.css">
+    <link rel="stylesheet" href="/static/css/order.css">
+    <link rel="stylesheet" href="/static/css/upload.css">
+    <link rel="stylesheet" href="/static/css/stock.css">
+    <title>{{.Title}}</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+              <a href="/admin">
+                  <h1>sKyMaLL</h1>
+              </a>
+            </div>
+            <div class="search">
+              <form action="" method="get">
+                <input type="text" name="search" id="search" placeholder="Search products, brands and categories">
+                <button type="submit">Search</button>
+              </form>
+            </div>
+            <div class="nav">
+              <div class="holder">
+                <div class="account nav_item">
+                  <i class="fas fa-user"></i>
+                  <div id="name">
+                    {{if .User.FName}}
+                      <h4>Hi, {{.User.FName}}</h4>
+                    {{else}}
+                      <h4>Account</h4>
+                    {{end}}
+                  </div>
+                  <i class="fas fa-caret-down dropdown-arrow"></i>
+                </div>
+                {{if .User.FName}}
+                    <div id="actions">
+                      <ul>
+                        <li>
+                          <a href="/profile?name=account">
+                            <i class="fas fa-user"></i>
+                            My Account
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/upload">
+                            <i class="fas fa-user"></i>
+                            Upload Products
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/profile?name=orders">
+                            <i class="fas fa-box"></i>
+                            Orders
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/inbox">
+                            <i class="fas fa-inbox"></i>
+                            Inbox
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/vouchers">
+                            <i class="fas fa-receipt"></i>
+                            Vouchers
+                          </a>
+                        </li>
+                        <li>
+                          <div class="signin">
+                                <a href="/signout">
+                                  <button id="logout">Log Out</button>
+                                </a>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+              {{end}}
+              </div>
+            </div>
+        </header>
+    </div>
+    <div id="profile_div">
+      <div id="left">
+          <div class="hide">Hide</div>
+          <div id="links">
+              <ul>
+                <li id="link">
+                  <a href="/profile?name=account">
+                    <i class="fas fa-user"></i>
+                    My Account
+                    <input type="hidden" value="account">
+                  </a>
+                </li>
+                <li id="link">
+                  <a href="/upload">
+                    <i class="fas fa-user"></i>
+                    Upload Products
+                  </a>
+                </li>
+                <li id="link">
+                  <a href="/stock">
+                    <i class="fas fa-user"></i>
+                    Stock
+                  </a>
+                </li>
+                <li id="link">
+                  <a href="">
+                    <i class="fas fa-box"></i>
+                    Orders
+                    <input type="hidden" value="orders">
+                  </a>
+                </li>
+                <li id="link">
+                    <i class="fas fa-inbox"></i>
+                    Inbox
+                    <input type="hidden" value="inbox">
+                </li>
+                <li id="link">
+                    <i class="fas fa-heart"></i>
+                    Saved Items
+                    <input type="hidden" value="savedItems">
+                </li>
+                <li id="link">
+                    <i class="fas fa-receipt"></i>
+                    Vouchers
+                    <input type="hidden" value="vouchers">
+                </li>
+                <li>
+                  <div class="sigout" 
+                  style="width: 100%;
+                          display: flex;
+                          flex-wrap: wrap;
+                          align-items: center;
+                          justify-content: center;">
+                        <a href="/signout" 
+                        style="width: 100%;
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: center;
+                        justify-content: center;">
+                          <button id="logout" style="color: coral; background-color: rgb(236, 236, 236);">Log Out</button>
+                        </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+      </div>
+      <div id="right">
+        {{if eq .Title "admin"}}
+            {{template "ACCOUNT" .User}}
+          {{else}}
+            {{template "DASHBOARD" .}}
+          {{end}}
+      </div>
+    </div>
+</body>
+</html>

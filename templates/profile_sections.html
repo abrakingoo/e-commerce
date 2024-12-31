@@ -1,0 +1,11 @@
+{{define "RIGHT_SECTION"}}
+    {{if .Page}}
+        {{if eq .Page "account"}}
+            {{template "ACCOUNT" .User}}
+        {{else if eq .Page "orders"}}
+            {{template "ORDERS" .Data}}
+        {{end}}
+    {{else}}
+        <p>No Data.</p>
+    {{end}}
+{{end}}

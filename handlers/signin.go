@@ -4,6 +4,7 @@ import (
 	"ecomerce/data"
 	"ecomerce/db"
 	"ecomerce/utils"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -13,7 +14,7 @@ import (
 func SigninHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case http.MethodGet:
-		RenderPage(w, data.PageData{Title: "Signin", Data: nil, User: data.User{}})
+		RenderPage(w, r, data.PageData{Title: "Signin", Data: nil, User: data.User{}})
 		return
 	case http.MethodPost:
 		singInUser(w, r)
@@ -26,6 +27,10 @@ func SigninHandler(w http.ResponseWriter, r *http.Request) {
 
 func singInUser(w http.ResponseWriter, r *http.Request) {
 
+	if r.Method != http.MethodPost {
+		http.Redirect(w, r, "/", http.StatusSeeOther)
+	}
+
 	r.ParseForm()
 
 	email := r.FormValue("email")
@@ -33,14 +38,13 @@ func singInUser(w http.ResponseWriter, r *http.Request) {
 
 	if !CheckInputValues([]string{email, password}) {
 		err := data.ErrorResponse{
-			Code:  http.StatusBadRequest,
-			Error: "Bad Request",
-			Msg:   "All Fields Must Be Filled",
-			Redirect: "/signin",
+			Code:      http.StatusBadRequest,
+			Error:     "Bad Request",
+			Msg:       "All Fields Must Be Filled",
+			Redirect:  "/signin",
 			Directive: "Try Again",
-			
 		}
-		RenderPage(w, data.PageData{Title: "Error", Data: err, User: data.User{}})
+		RenderPage(w, r, data.PageData{Title: "Error", Data: err, User: data.User{}})
 		return
 	}
 
@@ -49,13 +53,13 @@ func singInUser(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println("User Not Found:", err)
 		errResponse := data.ErrorResponse{
-			Code:  http.StatusUnauthorized,
-			Error: "Unauthorized",
-			Msg:   "User Not Found",
-			Redirect: "/signup",
+			Code:      http.StatusUnauthorized,
+			Error:     "Unauthorized",
+			Msg:       "User Not Found",
+			Redirect:  "/signup",
 			Directive: "Create Account?",
 		}
-		RenderPage(w, data.PageData{Title: "Error", Data: errResponse, User: data.User{}})
+		RenderPage(w, r, data.PageData{Title: "Error", Data: errResponse, User: data.User{}})
 		return
 	}
 
@@ -63,17 +67,18 @@ func singInUser(w http.ResponseWriter, r *http.Request) {
 	if err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password)); err != nil {
 		log.Println("Incorrect password")
 		errResponse := data.ErrorResponse{
-			Code:  http.StatusUnauthorized,
-			Error: "Unauthorized",
-			Msg:   "Invalid email or password",
-			Redirect: "/signin",
+			Code:      http.StatusUnauthorized,
+			Error:     "Unauthorized",
+			Msg:       "Invalid email or password",
+			Redirect:  "/signin",
 			Directive: "Try Again",
 		}
-		RenderPage(w, data.PageData{Title: "Error", Data: errResponse, User: data.User{}})
+		RenderPage(w, r, data.PageData{Title: "Error", Data: errResponse, User: user})
 		return
 	}
 
 	utils.CreateUserSession(w, r, user)
-	// Redirect to the home page or dashboard after sign-in
+	fmt.Println(user.Role)
+
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 }

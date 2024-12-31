@@ -1,0 +1,9 @@
+{{define "DASHBOARD"}}
+        {{if eq .Title "stock"}}
+            {{template "STOCK" .}}
+        {{else if eq .Title "upload"}}
+            {{template "UPLOAD" .}}
+        {{else if eq .Title "profile"}}
+            {{template "ACCOUNT" .User}}
+        {{end}}
+{{end}}

@@ -15,12 +15,12 @@ import (
 func SignupHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case http.MethodGet:
-		RenderPage(w, data.PageData{Title: "Signup", Data: nil, User:  data.User{}})
+		RenderPage(w, r, data.PageData{Title: "Signup", Data: nil, User: data.User{}})
 	case http.MethodPost:
 		registerNewUser(w, r)
 	default:
 		w.WriteHeader(http.StatusMethodNotAllowed)
-		RenderPage(w, data.PageData{Title: "Error", Data: "Method Not Allowed"})
+		RenderPage(w, r, data.PageData{Title: "Error", Data: "Method Not Allowed", User: data.User{}})
 	}
 }
 
@@ -34,13 +34,13 @@ func registerNewUser(w http.ResponseWriter, r *http.Request) {
 
 	if !CheckInputValues([]string{fname, lname, number, email, password}) {
 		err := data.ErrorResponse{
-            Code:  http.StatusBadRequest,
-            Error: "Bad Request",
-            Msg:   "All Fields Must Be Filled",
-			Redirect: "/signup",
+			Code:      http.StatusBadRequest,
+			Error:     "Bad Request",
+			Msg:       "All Fields Must Be Filled",
+			Redirect:  "/signup",
 			Directive: "Try Again",
-        }
-		RenderPage(w, data.PageData{Title: "Error", Data: err})
+		}
+		RenderPage(w, r, data.PageData{Title: "Error", Data: err, User: data.User{}})
 		return
 	}
 
@@ -55,16 +55,16 @@ func registerNewUser(w http.ResponseWriter, r *http.Request) {
 	}
 	// fmt.Println(uid, string(hashedpassword))
 	er := db.AddUser(uid.String(), fname, lname, number, email, string(hashedpassword))
-	if er != nil  {
+	if er != nil {
 		if sqlerr, ok := er.(sqlite3.Error); ok && sqlerr.ExtendedCode == sqlite3.ErrConstraintUnique {
 			errResp := data.ErrorResponse{
-				Code:  http.StatusBadRequest,
-				Error: "Bad Request",
-				Msg:   "The email alredy registered to another user",
-				Redirect: "/signup",
+				Code:      http.StatusBadRequest,
+				Error:     "Bad Request",
+				Msg:       "The email alredy registered to another user",
+				Redirect:  "/signup",
 				Directive: "Try Again",
 			}
-			RenderPage(w, data.PageData{Title: "Error", Data: errResp})
+			RenderPage(w, r, data.PageData{Title: "Error", Data: errResp, User: data.User{}})
 			return
 		}
 	}

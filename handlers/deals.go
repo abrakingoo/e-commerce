@@ -13,5 +13,5 @@ func HotDealsHandler(w http.ResponseWriter, r *http.Request) {
 		user = data.User{}
 	}
 
-	RenderPage(w, data.PageData{Title: "hotdeals", Data: nil, User: user})
+	RenderPage(w, r, data.PageData{Title: "hotdeals", Data: nil, User: user})
 }

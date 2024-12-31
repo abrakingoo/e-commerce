@@ -1,0 +1,32 @@
+{{define "UPLOAD"}}
+<div class="upload_container">
+    <div class="upload_title">UPLOAD PAGE</div>
+    <form action="/upload" method="post">
+        <div class="form_sections">
+            <label for="product_name">Product Name</label>
+            <input type="text" name="product_name" id="product_name" placeholder="Redmi 13c .." required autofocus>
+        </div>
+        <div class="form_sections">
+            <label for="product_price">Price</label>
+            <input type="text" name="product_price" id="product_price" placeholder="KSh ..." required>
+        </div>
+        <div class="form_sections">
+            <label for="product_category">Category</label>
+            <input type="text" name="product_category" id="product_category" placeholder="electronic ..." required>
+        </div>
+        <div class="form_sections">
+            <label for="product_description">Description</label>
+            <textarea name="product_description" id="product_description" cols="60" rows="5" required></textarea>
+        </div>
+        <div class="form_sections">
+            <label for="product_image">Image url</label>
+            <input type="text" name="product_image" id="product_image" placeholder="url ..." required>
+        </div>
+        <div class="form_sections">
+            <label for="quantity">Quantity</label>
+            <input type="text" name="product_quantity" id="quantity" min="1" required>
+        </div>
+        <button type="submit">Upload</button>
+    </form>
+</div>
+{{end}}

@@ -8,9 +8,9 @@ import (
 func GetUser(email string) (data.User, error) {
 	user := data.User{}
 
-	stm := `SELECT id, firstname, lastname, phonenumber, email, password FROM users WHERE email = ?`
+	stm := `SELECT id, firstname, lastname, phonenumber, email, role, password FROM users WHERE email = ?`
 
-	err := DB.QueryRow(stm, email).Scan(&user.Id, &user.FName, &user.LName, &user.Phone, &user.Email, &user.Password)
+	err := DB.QueryRow(stm, email).Scan(&user.Id, &user.FName, &user.LName, &user.Phone, &user.Email, &user.Role, &user.Password)
 
 	if err == sql.ErrNoRows {
 		return user, err

@@ -7,7 +7,6 @@ import (
 
 	// "fmt"
 	"net/http"
-	"strconv"
 )
 
 var id string
@@ -58,19 +57,19 @@ func CartHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		// fmt.Println(cart)
 		var userCart []data.Product
+		Products := GetCachedProducts()
 		if len(cart) > 0 {
 			for i := len(cart) - 1; i >= 0; i-- {
-				intId, _ := strconv.Atoi(cart[i])
 				for _, prod := range Products {
-					if intId == prod.Id {
+					if cart[i] == prod.Id {
 						userCart = append(userCart, prod)
 					}
 				}
 			}
-			RenderPage(w, data.PageData{Title: "cart", Data: userCart, User: user})
+			RenderPage(w, r, data.PageData{Title: "cart", Data: userCart, User: user})
 		} else {
 
-			RenderPage(w, data.PageData{Title: "cart", Data: nil, User: user})
+			RenderPage(w, r, data.PageData{Title: "cart", Data: nil, User: user})
 		}
 
 	}
@@ -100,5 +99,5 @@ func RemoveHandler(w http.ResponseWriter, r *http.Request) {
 	session.Values["cart"] = cart
 	session.Save(r, w)
 
-	RenderPage(w, data.PageData{Title: "cart", Data: cart, User: user})
+	RenderPage(w, r, data.PageData{Title: "cart", Data: cart, User: user})
 }

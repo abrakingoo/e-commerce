@@ -1,0 +1,41 @@
+{{define "ACCOUNT"}}
+<div id="title">
+    <h4>Account Overview</h4>
+</div>
+<div id="right_bottom">
+    <div id="right_left">
+        <div id="details">
+            <div id="account_title">
+                <h4>Account details</h4>
+            </div>
+            <div id="account_details">
+                <h4>
+                    {{.FName}} {{.LName}}
+                </h4>
+                <p>{{.Phone}}</p>
+                <p>{{.Email}}</p>
+            </div>
+        </div>
+    </div>
+    <div id="right_right">
+        <div id="address_title">
+            <h4>Address Book</h4>
+        </div>
+        <div id="address_info">
+            <h4>Your default shipping address:</h4>
+            <p>
+                {{.FName}} {{.LName}}
+            </p>
+            <p>
+                Kisumu
+            </p>
+            <p>
+                Kondele/Migosi/ Lolwe/Carwash/Kibos, Kisumu
+            </p>
+            <p>
+                {{.Phone}}
+            </p>
+        </div>
+    </div>
+</div>
+{{end}}
