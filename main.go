@@ -5,6 +5,7 @@ import (
 	"ecomerce/handlers"
 	"log"
 	"net/http"
+	"path/filepath"
 )
 
 func init() {
@@ -15,11 +16,21 @@ func init() {
 	if err := db.CreateTables(); err != nil {
 		log.Fatal(err.Error())
 	}
-
 }
 
 func main() {
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	// Handle static assets
+	http.HandleFunc("/static/", func(w http.ResponseWriter, r *http.Request) {
+		// Block directory browsing
+		if filepath.Ext(r.URL.Path) == "" {
+			http.Redirect(w, r, "/", http.StatusSeeOther)
+			return
+		}
+		// Serve the requested file from the static directory
+		http.ServeFile(w, r, "static"+r.URL.Path)
+	})
+
+	// Other routes
 	http.HandleFunc("/", handlers.HomeHandler)
 	http.HandleFunc("/signin", handlers.SigninHandler)
 	http.HandleFunc("/signout", handlers.SignOutHandler)
