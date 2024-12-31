@@ -14,7 +14,7 @@ var (
 	ProductsLock sync.RWMutex // Mutex for synchronizing access to Products
 )
 
-func loadProductsCache() error {
+func LoadProductsCache() error {
 	ProductsLock.Lock()
 	defer ProductsLock.Unlock()
 
@@ -50,7 +50,7 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 
 	// If cache is empty, reload from database
 	if len(cachedProducts) == 0 {
-		if err := loadProductsCache(); err != nil {
+		if err := LoadProductsCache(); err != nil {
 			log.Printf("Error loading products cache: %v", err)
 			http.Error(w, "Unable to load products. Please try again later.", http.StatusInternalServerError)
 			return
