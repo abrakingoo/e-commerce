@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"ecomerce/data"
 	"ecomerce/db"
 	"ecomerce/utils"
 	"log"
@@ -19,16 +18,11 @@ func CheckInput(arr []string) bool {
 }
 
 func UploadHandler(w http.ResponseWriter, r *http.Request) {
-	user, ok := utils.GetUserFromSession(r)
+	_, ok := utils.GetUserFromSession(r)
 
 	if !ok {
-		RenderPage(w, r, data.PageData{Title: "error", Data: data.ErrorResponse{
-			Code:      http.StatusUnauthorized,
-			Error:     "Unauthorized request",
-			Msg:       "Unauthorized access attempt",
-			Redirect:  "/",
-			Directive: "Go Back",
-		}, User: data.User{}})
+		http.Redirect(w, r, "/", http.StatusSeeOther)
+		return
 	}
 
 	if r.Method == http.MethodPost {
@@ -58,8 +52,9 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 		// w.Write([]byte(name + ", " + description + ", " + category + ", " + price + ", " + image))
 		LoadProductsCache()
 		http.Redirect(w, r, "/upload", http.StatusSeeOther)
+		return
 
 	}
 
-	RenderPage(w, r, data.PageData{Title: "upload", Data: nil, User: user})
+	http.Redirect(w, r, "/", http.StatusSeeOther)
 }

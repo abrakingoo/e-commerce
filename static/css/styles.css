@@ -37,7 +37,7 @@ header {
     top: 0;
     left: 0;
     background-color: #dcdad7;
-    padding: 0.8em 0em;
+    padding: 0.2em 0em;
     z-index: 1000;
     display: flex;
     flex-wrap: wrap;
@@ -59,8 +59,8 @@ header .logo a {
 }
 
 header .search {
-    flex: 0.63 0 8em;
-    margin: auto 2em;
+    flex: 0.60 0 8em;
+    margin: auto 1em;
 }
 header .search form {
     width: 100%;
@@ -74,7 +74,7 @@ header .search form {
 
 .search form input {
     width: 80%;
-    padding: 0.5em 1em;
+    padding: 0.3em 0.8em;
     border-radius: 7px;
     outline: none;
     border: none;
@@ -83,7 +83,7 @@ header .search form {
 .search form button {
     width: 12%;
     font-size: 1em;
-    padding: 0.3em 0.1em;
+    padding: 0.1em;
     border-radius: 8px;
     background-color: #f68b1e;
     border: none;
@@ -91,7 +91,7 @@ header .search form {
     color: white;
 }
 header .nav {
-    width: 25% ;
+    width: 30% ;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -106,7 +106,7 @@ header .nav {
     justify-content: space-between;
     gap: 5px;
     cursor: pointer;
-    padding: 0.5em;
+    padding: 0.2em;
     border-radius: 0.3em;
     font-size: 1em;
 }
@@ -144,7 +144,7 @@ header .nav {
 
 #actions {
     position: absolute;
-    top: 3em;
+    top: 2.05em;
     left: -2em;
     background-color: #dcdad7;
     width: 12em;
@@ -203,8 +203,8 @@ header .nav {
     gap: 1.5em;
     align-items: center;
     justify-content: center;
-    margin: 1em auto;
-    margin-top: 5rem;
+    margin: 0.5em auto;
+    margin-top: 3rem;
 }
 
 .main_section .top_div .left_div {
@@ -214,6 +214,7 @@ header .nav {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    align-self: flex-start;
 }
 
 .main_section .top_div .left_div ul {
@@ -223,7 +224,7 @@ header .nav {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 0.2em;
+    gap: 0.3em;
     padding: 0.6em;
 }
 
@@ -402,6 +403,8 @@ header .nav {
     align-items: center;
     justify-content: space-around;
     border-radius: 0 0 5px 5px;
+    padding: 0.5em;
+    box-sizing: border-box;
 
 }
 
@@ -410,7 +413,7 @@ header .nav {
 }
 
 .product_frame, .product_image {
-    width: 11em;
+    width: 9em;
     cursor: pointer;
 
 }
@@ -420,8 +423,8 @@ header .nav {
     border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
-    height: 15em;
-    margin: 0.5em;
+    height: 12em;
+    margin: 0.2em 0.3em;
     position: relative;
 }
 
@@ -435,7 +438,7 @@ header .nav {
 }
 .product_image img {
     width: 100%;
-    height: 10em;
+    height: 8em;
     padding: 0.4em 0.4em 0 0.4em; 
     border-radius: 8px 8px 0 0;
 }
@@ -492,8 +495,9 @@ header .nav {
  .product_discount  button {
     margin-left: auto;
     margin-right: 0.8em;
+    margin-top: 0.2em;
     padding: 0.1em 0.2em;
-    width: 50%;
+    width: 90%;
     border-radius: 10px;
     border: none;
     cursor: pointer;
@@ -519,10 +523,11 @@ header .nav {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
     border-radius: 5px;
     margin: 0.5em  auto;
-
+    padding: 2em;
+    
 }
 
 .bottom_section .item {
@@ -530,9 +535,10 @@ header .nav {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    width: 12em;
-    height: 16em;
-    margin: 0.2em;
+    width: 8.5em;
+    height: 10em;
+    margin: 1em;
+
 }
 
 .bottom_section .item .image {
@@ -565,9 +571,10 @@ header .nav {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
-    gap: 0.5em;
+    justify-content: flex-start;
+    gap: 3em;
     border-radius: 0 0 5px 5px;
+    padding: 1em 4em 1em 5em;
 
 }
 
@@ -604,4 +611,9 @@ header .nav {
 footer {
     width: 100%;
     background-color: gray;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }

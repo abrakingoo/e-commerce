@@ -5,15 +5,16 @@ import (
 	"ecomerce/utils"
 	"log"
 	"net/http"
+	"path/filepath"
 )
 
 func AdminHandler(w http.ResponseWriter, r *http.Request) {
-		
-	// if r.Method != http.MethodPost {
-	// 	http.Redirect(w, r, "/", http.StatusSeeOther)
-	// 	return
-	// }
 
+	if filepath.Ext(r.URL.Path) == "" {
+		http.Redirect(w, r, "/", http.StatusSeeOther)
+		return
+	}
+	
 	user, ok := utils.GetUserFromSession(r)
 	if !ok {
 		user = data.User{}

@@ -67,7 +67,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    padding: 1em 1em 0 1em ;
+    padding: 0.5em 0.5em 0em 0.5em ;
 }
 
 #cart_items:last-child {
@@ -80,14 +80,14 @@
     flex-wrap: wrap;
     align-items: center;
     border-radius: 8px;
-    padding: 2em;
+    padding: 0.5em 0.5em 0.5em 1.5em;
     background-color: aliceblue;
 
 }
 
 #frame #image {
-    width: 25%;
-    height: 18em;
+    width: 20%;
+    height: 13em;
     margin-right: 2em;
     border-radius: 6px;
     align-self: flex-start;
@@ -99,13 +99,13 @@
 }
 
 #frame #image img {
-    width: 90%;
-    height: 90%;
+    width: 70%;
+    height: 70%;
     border-radius: 8px;
 }
 
 #frame #info {
-    width: 70%;
+    width: 75%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -119,15 +119,15 @@
 #frame #info #title, #description, #price, #rating, #category {
     width: 100%;
     text-align: left;
-    padding: 0.5em;
+    padding: 0.3em;
 }
 
 #frame #info #title {
-    font-size: 1.3em;
+    font-size: 1em;
 }
 
 #description, #price, #rating, #category {
-    margin-left: 1em;
+    margin-left: 0.3em;
 }
 #bottom {
     width: 100%;
@@ -158,7 +158,6 @@
     background-color: #dcdad7;
     padding: 0.2em 0.3em;
     border-radius: 5px;
-    font-size: 1em;
     text-align: center;
 }
 
@@ -169,18 +168,19 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    margin-top: 1em;
+    margin-top: 0.5em;
 }
 
 #remove  button {
-    width: 10em;
+    width: 6em;
     font-size: 1em;
-    padding: 1em 0.1em;
+    padding: 0.2em 0.1em;
     border-radius: 8px;
     background-color: rgb(211, 100, 81);
     border: none;
     cursor: pointer;
     color: white;
+    align-self: center;
 }
 
 #check_out, #check_out a  {
@@ -205,32 +205,30 @@
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding: 0.8em;
     cursor: pointer;
     border: none;
     border-radius: 8px;
     font-size: 1em;
+    padding: 0.2em;
 }
 #description {
-    line-height: 1.7em;
-    font-size: 1em;
+    line-height: 1.1em;
+    font-size: 0.8em;
     padding: 0.8em;
     border-radius: 1em;
     background-color: #f8f7f7;
 }
 
 #return_home {
-    background-color:  #c7701a;
     color: white;
     border-radius: 8px;
-    width: 40%;
+    width: 20%;
 }
 
 #buy {
-    background-color:  #c7701a;
     color: white;
     border-radius: 8px;
-    width: 40%;
+    width: 20%;
 }
 
 #return_home a, #buy a {

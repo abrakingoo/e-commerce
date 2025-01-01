@@ -8,6 +8,7 @@ import (
 )
 
 func ProfileHandler(w http.ResponseWriter, r *http.Request) {
+
 	user, ok := utils.GetUserFromSession(r)
 	if !ok {
 		http.Redirect(w, r, "/signin", http.StatusSeeOther)
