@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"ecomerce/data"
 	"ecomerce/db"
 	"ecomerce/utils"
 	"log"
@@ -18,9 +19,9 @@ func CheckInput(arr []string) bool {
 }
 
 func UploadHandler(w http.ResponseWriter, r *http.Request) {
-	_, ok := utils.GetUserFromSession(r)
+	user, ok := utils.GetUserFromSession(r)
 
-	if !ok {
+	if !ok || user.Role != "admin"{
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
@@ -56,5 +57,5 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 
 	}
 
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	RenderPage(w, r, data.PageData{Title: "upload", Data: nil, User: user})
 }
