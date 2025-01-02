@@ -6,7 +6,7 @@
     display: flex;
     flex-wrap: wrap;
     border-radius: 10px;
-    background-color: #272626;
+    background-color: transparent;
 }
 
 .heading {
@@ -15,7 +15,6 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    color: white;
     margin-top: 0.5em;
 }
 
