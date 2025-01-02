@@ -135,10 +135,12 @@ removeBtns.forEach((btn) => {
 
 let logOutBtn = document.getElementById("logout");
 
-logOutBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // Prevents the event from bubbling up
-    localStorage.clear(); // Removes only the 'cartItems' entry from localStorage
-});
+if (logOutBtn != null) {
+    logOutBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevents the event from bubbling up
+        localStorage.clear(); // Removes only the 'cartItems' entry from localStorage
+    });
+}
 
 let chekoutBtn = document.getElementById("buy_btn") 
 if (chekoutBtn != null) {
@@ -151,7 +153,23 @@ let hide = document.querySelector(".hide");  // Targeting button inside .hide
 let el = document.querySelector("#profile_div #left"); 
 let right = document.querySelector("#profile_div #right");  // Select #left inside #profile_div
 
-hide.addEventListener('click', () => {
-    el.style.display = "none";  // Hide the left section
-    right.style.width = "100%"
+if (hide != null) {
+    hide.addEventListener('click', () => {
+        el.style.display = "none";  // Hide the left section
+        right.style.width = "100%"
+    });
+    
+}
+// toggle
+let togleBtn = document.querySelector(".humberg");
+let div = document.querySelector(".main_section .top_div .left_div");
+
+// Add click event listener
+togleBtn.addEventListener('click', () => {
+    // Toggle between "none" and "flex"
+    if (div.style.display === "none"){
+        div.style.display = "flex";
+    } else {
+        div.style.display = "none"; 
+    }
 });

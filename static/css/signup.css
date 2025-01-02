@@ -49,3 +49,27 @@
     color: white;
     background-color: #f68b1e;
 }
+
+@media screen and (max-width: 436px) {
+
+    .signupheading h1 {
+        font-size: small;
+    }
+
+    .signupform form {
+        width: 80%;
+        gap: 0.3em ;
+        padding: 0.5em;
+    }
+
+    .signupform form input {
+        margin: 0.3em auto;
+        padding: 0.5em;
+    }
+
+    .signupform form button {
+        font-size: small;
+        cursor: pointer;
+        padding: 0.3em 1em;
+    }
+}

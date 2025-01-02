@@ -66,3 +66,48 @@
     text-align: center;
     margin-bottom: 1em;
 }
+
+@media screen and (max-width: 480px) {
+    .signindiv {
+        margin: 5em auto;
+        border: 1px solid #dcdad7;
+        width: 20em;
+        height: 25em;
+        display: flex;
+        flex-wrap: wrap;
+        border-radius: 10px;
+        background-color: transparent;
+    }
+
+    .heading {
+        margin-top: 0;
+    }
+
+    .heading  h1{
+        font-size: large;
+    }
+
+    .signinform form input {
+        width: 100%;
+        margin: 1em auto;
+        padding: 0.5em;
+        outline: none;
+        border-radius: 8px;
+        border: 2px solid #4a9276;
+    }
+
+    .signup {
+        margin: 1em;
+        font-size: small;
+    }
+
+    .signinform form button {
+        font-size: 1em;
+        cursor: pointer;
+        padding: 0.3em 1em;
+        border: 1px solid #4a9276;
+        border-radius: 8px;
+        color: white;
+        background-color: #f68b1e;
+    }
+}
