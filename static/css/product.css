@@ -107,3 +107,17 @@
     gap: 1em;
     font-size: x-small;
 }
+
+/* @media screen and (max-width: 430px) {
+    #image, #info{
+        display: none;
+    }
+
+  
+
+    #image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+} */

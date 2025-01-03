@@ -664,7 +664,7 @@ footer {
 
 /* media query */
 
-@media screen and (max-width: 720px) {
+@media (min-width: 720px) and (max-width: 1000px) {
     .search button {
         display: none;
     }
@@ -710,29 +710,7 @@ footer {
 
 }
 
-@media screen and (max-width: 666px){
-
-    .bottom_section {
-        padding-left: 6em;
-        
-    }
-
-    .topdeals_items{
-        padding: 1em 1em 1em 7em;
-    
-    }
-
-    .container .mid_div .top_section {
-        padding: 0.5em 0.5em 0.5em 2em ;
-
-    
-    }
-    
-
-}
-
-
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 719px) {
     header .logo {
         width: 100%;
         margin-left: 1em;
@@ -957,8 +935,71 @@ footer {
     .product_frame {
         border-radius: 3px;
         height: 10em;
+        width: 40%;
+        margin: 0.3em 0.3em 0.3em 1em;
+    }
+
+    .product_image, .product_image a  {
         width: 100%;
-        margin: 0.3em 0.3em 0.3em 1.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .product_image a img {
+        width: 100%;
+    }
+
+    .topdeals_items{
+        width: 100%;
+        gap: 2em;
+    
+    }
+    
+    .product_discount  button {
+        width: 100%;
+    }
+
+    .bottom_section {
+        width: 90%;
+        background-color: transparent;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        padding-left: 0;   
+    }
+
+    .top_section {
+        gap: 2em;
+    }
+
+    .bottom_section .item {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width: 35%;
+        height: 8em;
+    
+    }
+
+ 
+}
+
+
+@media screen and (max-width: 331px) {
+    .container .mid_div .latest_products .title {
+        font-size: 0.7em;
+        padding: 0.5em; 
+    }
+
+    .product_frame {
+        border-radius: 3px;
+        height: 10em;
+        width: 100%;
+        margin: 0.3em 0.3em 0.3em 1em;
     }
 
     .product_image, .product_image a  {
@@ -979,8 +1020,7 @@ footer {
     }
     
     .product_discount  button {
-        width: 50%;
-        margin-right: 7em;
+        width: 100%;
     }
 
     .bottom_section {
@@ -992,17 +1032,42 @@ footer {
         justify-content: flex-start;
         border-radius: 5px;
         margin: 0.5em  auto;
-        padding-left: 6em;
         
     }
 
     .top_section {
         gap: 2em;
     }
+
+    .topdeals_items{
+        width: 100%;
+        gap: 5em;
+    
+    }
+
+    .product_frame {
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+    }
+
+    .topdeals_items .product_frame .product_image{
+        width: 100%;
+        height: 100%;
+        border-radius: 0.5em;
+    }
+
+    .bottom_section .item {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width: 35%;
+        height: 8em;
+    
+    }
+
         
 }
-
-
-
 
 
