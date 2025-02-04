@@ -50,7 +50,7 @@ e-commerce/
 ## Setup and Installation
 1. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/e-commerce.git
+   git clone https://github.com/abrakingoo/e-commerce/
    cd e-commerce
    ```
 
